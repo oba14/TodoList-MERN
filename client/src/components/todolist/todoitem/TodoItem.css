@@ -1,0 +1,9 @@
+.cards {
+    color: black;
+    
+}
+
+.cards-line-through {
+    color: black;
+    text-decoration: line-through red; 
+}

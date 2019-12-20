@@ -1,0 +1,19 @@
+.todo-list {
+    padding: 0 20px 30px;
+    background-color: rgb(45, 45, 45);
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: -2px 2px 2px #222, 2px 2px 2px #222;
+    overflow: scroll;
+    opacity: 0.9;
+    float: left;
+    max-height: 30em;
+    width: 25em;
+
+}
+
+.todo-list__list {
+    padding: 10px;
+    margin: 0;
+    overflow-y: scroll;
+}

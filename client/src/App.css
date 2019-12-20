@@ -1,0 +1,19 @@
+.container {
+    padding-top: 3%;
+}
+
+.button {
+    background-color: transparent;
+    color: black;
+    padding: 2px 8px 0px;
+    font-size: 20px;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    margin-left: 5px;
+}
+
+.input--text {
+    border: 1px solid lightgrey;
+    font-size: 20px;
+    padding: 2px 5px;
+}

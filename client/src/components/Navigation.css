@@ -1,0 +1,55 @@
+.sidenav {
+    height: 2%;
+    width: 100%;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-y: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+  
+  }
+
+  .sidenav:hover {
+    height: 7%;
+  
+  }
+  
+  .sidenav-welcome {
+    color: #ec5555;
+    font-size: small;
+    padding-left: 10%;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: aliceblue;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .landing-welcome {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 30px;
+    background-color: rgb(45, 45, 45);
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: -2px 2px 2px #222, 2px 2px 2px #222;
+    overflow: hidden;
+    opacity: 0.9;
+    max-height: 30em;
+    width: 25em;
+    text-align: center;
+  }

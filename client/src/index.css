@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  min-height: 100%;
+  padding: 0;
+  background: rgb(27, 85, 140);
+  color: white;
+  font-family: Lato, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+button {
+  transition: all 200ms;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.1, 1.1)
+}
+
+input[readonly] {
+  border: 1px solid transparent;
+}

@@ -1,0 +1,41 @@
+{
+  "name": "TodoList-MERN",
+  "version": "1.0.0",
+  "description": "* An express server connected to mongodb *",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha .",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oba14/TodoList-MERN.git"
+  },
+  "author": "Oba",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "eslint": "5.12.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-mocha": "5.2.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.4",
+    "supertest": "^4.0.2",
+    "cors": "^2.8.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.3.4",
+    "mongoose": "^5.7.12",
+    "express-validator": "^5.3.0",
+    "morgan": "^1.9.1"
+  }
+}
