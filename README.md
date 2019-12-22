@@ -27,6 +27,8 @@ $ npm start  // start the server
 $ cd server   // go to server folder
 $ npm i       // npm install pacakges
 $ npm sart    // run it locally
+
+add mongo uri to environment variable in config folder 
 ```
 # Dependencies(tech-stacks)
 Client-side | Server-side
