@@ -38,11 +38,20 @@ const Todo = ({title, text, dueDate, id, done, _id, category}) => {
           <CardText>Category: {category}</CardText>
           <CardText> Description: {text}</CardText>
           <CardText> Duedate: {dueDate}</CardText>
+          <CardText> {`Done: ${done}`}</CardText>
           <Button className= "button" onClick={() => dispatch(deleteTodo(_id))} >  
             <span role="img" aria-label="delete">❌</span>
           </Button>
           <Button className= "button" onClick={() => {
-            dispatch(toggleTodo(_id))
+            dispatch(toggleTodo({
+              id,
+              _id, // Mongodb id
+              done,
+              title,
+              text,
+              dueDate,
+              category
+            }))
             setToggleStatus(!toggleStatus)
             }
           } type='button'>Mark as Done</Button>
@@ -58,7 +67,7 @@ const Todo = ({title, text, dueDate, id, done, _id, category}) => {
           <input onChange={(event) => setEditedTitle(event.target.value)} type="text" name="Title" value={editedTitle}></input>
           <input onChange={(event) => setEditedDueDate(event.target.value)} type="text" name="Due Date" value={editedDueDate}></input>
           <input onChange={(event) => setEditedText(event.target.value)} type="text" name="Text" value={editedText}></input>
-          <button onClick={() => setEditing(false)} type='button'>Cancel Edit</button>
+          <button onClick={() => setEditing(false)} type='button'>Cancel</button>
           <button onClick={() => saveEditedTodo()} type='button'>Save</button>
         </div>
       )}

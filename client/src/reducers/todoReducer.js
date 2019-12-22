@@ -1,58 +1,117 @@
-import axios from 'axios';
-
+const initialState = {
+  todos: [],
+  isFetching: false,
+  error: null,
+  error_adding: false,
+  error_deleting: false
+}
 /**
  * 
  * @param {*} state 
  * @param {*} action 
  */
-const todoReducer = (state = [], action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'SHOW_TODOS':
-    return action.todos
-    
-
-    case 'ADD_TODO':
-      return [
+    case 'IS_FETCHING':
+      return {
         ...state,
-        {
+        todos: [],
+        isFetching: true,
+        error: null,
+        error_adding: false,
+        error_deleting: false
+      }
+
+    case 'ERROR_FETCHING':
+      return {
+        ...state,
+        todos: [],
+        isFetching: false,
+        error: action.error,
+        error_adding: false,
+        error_deleting: false
+      }  
+
+    case 'SHOW_TODOS':
+    return {
+      ...state, 
+      todos: action.todos,
+      isFetching: false,
+      error: null,
+      error_adding: false,
+      error_deleting: false
+    }
+    
+    case 'ERROR_DELETING':
+      return {
+        ...state,
+        error_deleting: true
+      }
+
+    case 'ERROR_ADDING':
+      return {
+        ...state,
+        error_adding: true
+      } 
+      
+    case 'ADD_TODO':
+      return {
+        ...state,
+        todos: [...state.todos,{
           id: action.todo.id,
           title: action.todo.title,
           text: action.todo.text,
           dueDate: action.todo.dueDate,
           done: false,
           category: action.todo.category
-        }
-      ]
+        }],
+        isFetching: false,
+        error: null,
+        error_adding: false,
+        error_deleting: false
+      }
 
     case 'DELETE_TODO':
-      return state.filter(todo => todo._id !== action.id) 
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo._id !== action.id),
+        isFetching: false,
+        error: null,
+        error_adding: false,
+        error_deleting: false
+      } 
 
     case 'TOGGLE_TODO':
 
-      return state.map(todo => {
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
         if(todo._id === action.id) {
           todo.done = !todo.done
-          
-          // Sending put request to update the record in mongodb
-          axios({
-            method: 'put',
-            url: `http://localhost:5000/todolist/edit/${todo._id}`,
-            data: todo
-          })
-          .then(succ => console.log("item successfully UPDATED after TOGGLE MONGOOSE", succ.status))
-          .catch(error => console.log("Item couldnt Updated after TOGGLE MONGOOSE", error.status))
         }
         return todo
-      })
+      }),
+      isFetching: false,
+      error: null,
+      error_adding: false,
+      error_deleting: false
+    }
     
     case 'EDIT_TODO':
-      return state.map(todo => {
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
         if (todo.id === action.todo.id) {
           return action.todo
         }
         return todo
-      })
+      }),
+      isFetching: false,
+      error: null,
+      error_adding: false,
+      error_deleting: false
+    }
 
     default:
       return state
@@ -60,20 +119,3 @@ const todoReducer = (state = [], action) => {
 }
 
 export default todoReducer
-
-// const todoReducer = (todos = [], action) => {
-//     switch (action.type) {
-//         case 'ADD_TODO':
-//             return [{id: action.id, title: action.title, done: false}, ...todos];
-//         case 'REMOVE_TODO':
-//             return todos.filter(todo => todo.id !== action.id);
-//         case 'UPDATE_TODO':
-//             return todos.map(todo => todo.id === action.id ? {...todo, title: action.title} : todo);
-//         case 'TOGGLE_DONE_TODO':
-//             return todos.map(todo => todo.id === action.id ? {...todo, done: !todo.done} : todo);
-//         default:
-//             return todos
-//     }
-// };
-
-// export default todoReducer

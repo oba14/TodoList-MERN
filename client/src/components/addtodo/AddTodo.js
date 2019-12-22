@@ -10,7 +10,7 @@ const AddTodo = () => {
   const [text, setText] = useState('')
   const [dueDate, setDueDate] = useState('2019-12-25')
   const [done, setDone] = useState(false)
-  const [category, setCategory] = useState('General')
+  const [category, setCategory] = useState('general')
 
   const add = (event) => {
     event.preventDefault()

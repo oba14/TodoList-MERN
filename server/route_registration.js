@@ -1,6 +1,6 @@
 const express = require('express');
 const todoListRoutes = express.Router();
-const bcrypt = require('bcryptjs');
+//const bcrypt = require('bcryptjs');
 let TodoList = require('./schema');
 
 // Add new todo

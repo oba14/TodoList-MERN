@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import Todo from '../todolist/todoitem/TodoItem'
 import { showTodo } from '../../actions/todoActions'
 import './TodoList.css'
-const url = 'http://localhost:5000/todoList/allData';
 
 const TodoList = () => {
-  let todos = useSelector(state => state.todos);
+  let todos = useSelector(state => state.todos.todos);
   const [filteredTodos, setFilteredTodos] = useState(todos);
   const [status, setStatus] = useState('all');
   const [filterCategories, setFilterCategories] = useState('');
@@ -18,13 +17,6 @@ const TodoList = () => {
   }, [])
 
   useEffect(() => {
-    
-    
-
-    console.log('EFFECT TODOS 2', todos);
-    console.log('CATEGORY SELECTED', filterCategories);
-    console.log('STATUS', status);
-    
     
     switch(status) {
       case 'all': setFilteredTodos(todos)
