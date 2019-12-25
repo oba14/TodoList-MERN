@@ -3,7 +3,6 @@ const url = 'http://localhost:5000/todoList/';
 
 export const addTodo = todo => {
 
-    //axios.post('http://localhost:5000/todolist/add', )
     return async (dispatch) => {
         axios({
             method: 'post',

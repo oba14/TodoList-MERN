@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({
 /************** mongodb ************************* */
 
 const uri = process.env.ATLAS_URI;
-console.log('mongo uri', uri);
 
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false})
 .then(() => {console.log('Database is connected') },

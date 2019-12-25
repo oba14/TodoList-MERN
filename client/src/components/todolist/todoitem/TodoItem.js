@@ -3,7 +3,7 @@ import { deleteTodo, toggleTodo, editTodo } from '../../../actions/todoActions';
 import { useDispatch } from 'react-redux';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle, Button
 } from 'reactstrap';
 import './TodoItem.css'
 
@@ -64,11 +64,15 @@ const Todo = ({title, text, dueDate, id, done, _id, category}) => {
 
       { editing && (
         <div className= "todo-item">
-          <input onChange={(event) => setEditedTitle(event.target.value)} type="text" name="Title" value={editedTitle}></input>
-          <input onChange={(event) => setEditedDueDate(event.target.value)} type="text" name="Due Date" value={editedDueDate}></input>
-          <input onChange={(event) => setEditedText(event.target.value)} type="text" name="Text" value={editedText}></input>
-          <button onClick={() => setEditing(false)} type='button'>Cancel</button>
-          <button onClick={() => saveEditedTodo()} type='button'>Save</button>
+          <Card className = 'cards' >
+            <CardBody>
+              <CardTitle> <input onChange={(event) => setEditedTitle(event.target.value)} type="text" name="Title" value={editedTitle}></input> </CardTitle>
+              <CardText> <input onChange={(event) => setEditedDueDate(event.target.value)} type="text" name="Due Date" value={editedDueDate}></input> </CardText>
+              <CardText> <input onChange={(event) => setEditedText(event.target.value)} type="text" name="Text" value={editedText}></input> </CardText>
+              <Button className='button' onClick={() => setEditing(false)} type='button'>Cancel</Button>
+              <Button className='button' onClick={() => saveEditedTodo()} type='button'>Save</Button>
+              </CardBody>
+          </Card>
         </div>
       )}
     </div>

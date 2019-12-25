@@ -1,6 +1,5 @@
 const express = require('express');
 const todoListRoutes = express.Router();
-//const bcrypt = require('bcryptjs');
 let TodoList = require('./schema');
 
 // Add new todo
@@ -36,7 +35,6 @@ todoListRoutes.route('/edit/:id').put(async(req, res) => {
 // Add new todo
 todoListRoutes.route('/delete/:id').delete(async (req, res) => {
 	const {id} = req.params;
-	console.log('Id of item to be DELETED', id);
 	
     await TodoList.findByIdAndDelete(id)
     	.then(reqq => {
